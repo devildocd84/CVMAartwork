@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVMA 24-3 Newsletter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #111;
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #f0ead8;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #141414;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+    }
+    .hero img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 28px 24px 18px;
+    }
+    .hero-title {
+      font-family: 'Oswald', Impact, sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #C9A84C;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+    }
+    .hero-sub {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #e0d5b8;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ── GOLD TOP BAND ── */
+    .gold-band {
+      background: #C9A84C;
+      height: 6px;
+      width: 100%;
+    }
+    .dark-band {
+      background: #1e1e1e;
+      height: 3px;
+      width: 100%;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 28px 28px 14px;
+    }
+    .section-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #C9A84C;
+      border-bottom: 2px solid #C9A84C;
+      padding-bottom: 4px;
+      flex: 1;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C9A84C55, transparent);
+      margin: 8px 28px 20px;
+    }
+
+    /* ── PERSON CARD (side-by-side photo + text) ── */
+    .person-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 10px 28px 22px;
+    }
+    .person-photo {
+      width: 130px;
+      min-width: 130px;
+      height: 150px;
+      object-fit: cover;
+      border: 3px solid #C9A84C;
+      border-radius: 4px;
+      background: #2a2a2a;
+    }
+    .person-photo-placeholder {
+      width: 130px;
+      min-width: 130px;
+      height: 150px;
+      background: #2a2a2a;
+      border: 3px solid #C9A84C44;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 11px;
+      text-align: center;
+    }
+    .person-info {
+      flex: 1;
+    }
+    .person-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .person-role {
+      display: inline-block;
+      background: #8B0000;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+    .person-desc {
+      font-size: 13.5px;
+      color: #c8bfa8;
+      line-height: 1.65;
+    }
+
+    /* ── EVENT CARD ── */
+    .event-card {
+      background: #1c1c1c;
+      border-left: 4px solid #C9A84C;
+      margin: 0 28px 20px;
+      border-radius: 0 6px 6px 0;
+      overflow: hidden;
+    }
+    .event-img {
+      width: 100%;
+      max-height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+    .event-body {
+      padding: 16px 18px 18px;
+    }
+    .event-date {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #C9A84C;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .event-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .event-details {
+      list-style: none;
+      padding: 0;
+    }
+    .event-details li {
+      font-size: 13px;
+      color: #b8ad98;
+      line-height: 1.7;
+      padding-left: 14px;
+      position: relative;
+    }
+    .event-details li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #C9A84C;
+    }
+
+    /* ── ANNOUNCEMENT CARD ── */
+    .announcement-card {
+      margin: 0 28px 20px;
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-top: 3px solid #8B0000;
+      border-radius: 0 0 6px 6px;
+      overflow: hidden;
+    }
+    .announcement-img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .announcement-body {
+      padding: 16px 18px 18px;
+    }
+    .announcement-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #C9A84C;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .announcement-text {
+      font-size: 13.5px;
+      color: #b8ad98;
+      line-height: 1.7;
+    }
+    .announcement-cta {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #fff;
+      background: #8B0000;
+      padding: 5px 14px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── NEW MEMBER CARD ── */
+    .member-card {
+      margin: 0 28px 20px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px;
+      overflow: hidden;
+    }
+    .member-photo {
+      width: 110px;
+      min-width: 110px;
+      height: 120px;
+      object-fit: cover;
+      border: 3px solid #C9A84C;
+      border-radius: 4px;
+      background: #2a2a2a;
+    }
+    .member-info {}
+    .member-welcome {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-bottom: 4px;
+    }
+    .member-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .member-handle {
+      color: #8B0000;
+      font-size: 14px;
+    }
+    .member-sub {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    /* ── SECTION CONTENT AREA ── */
+    .section-content {
+      padding-bottom: 10px;
+    }
+
+    /* ── SECTION SEPARATOR ── */
+    .section-sep {
+      height: 8px;
+      background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+      margin-bottom: 8px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #0d0d0d;
+      border-top: 4px solid #C9A84C;
+      padding: 28px 28px 32px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #C9A84C;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 18px;
+    }
+    .footer-stars {
+      color: #C9A84C;
+      font-size: 18px;
+      letter-spacing: 8px;
+      margin-bottom: 14px;
+    }
+    .footer-note {
+      font-size: 11px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ── UTILITY ── */
+    .mt-4 { margin-top: 4px; }
+    .stars-row {
+      text-align: center;
+      color: #C9A84C44;
+      font-size: 10px;
+      letter-spacing: 3px;
+      padding: 6px 0;
+    }
+
+    img[src=""] { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <div class="hero">
+    <img
+      src="https://drive.google.com/uc?export=view&id=18cTjUE3-ziFnFqdNQM3COApmLrzXwJis"
+      alt="CVMA 24-3"
+      style="width:100%; display:block; min-height:200px; background:#1a1a1a;"
+    >
+    <div class="hero-overlay">
+      <div class="hero-title">CVMA Chapter 24-3</div>
+      <div class="hero-sub">Illinois ★ Combat Veterans Motorcycle Association</div>
+    </div>
+  </div>
+  <div class="gold-band"></div>
+  <div class="dark-band"></div>
+
+
+  <!-- ════════════════ SERGEANT AT ARMS ════════════════ -->
+  <div class="section-content">
+    <div class="section-header">
+      <span class="section-icon">⭐</span>
+      <div class="section-title">Sergeant at Arms</div>
+    </div>
+    <hr class="divider">
+
+    <!-- Buttons -->
+    <div class="person-row">
+      <img
+        class="person-photo"
+        src="https://drive.google.com/uc?export=view&id=1ynGZ5cmRqAr6hoBrbg3QKvtPYcq0hTnD"
+        alt="Buttons"
+      >
+      <div class="person-info">
+        <div class="person-name">Buttons</div>
+        <div class="person-role">State Sergeant at Arms</div>
+        <p class="person-desc">
+          Congratulations to <strong style="color:#fff;">Buttons</strong> on taking up the position to serve as the <strong style="color:#C9A84C;">State Sergeant at Arms</strong>. Your dedication to the brotherhood and this organization is an inspiration to us all. We are proud to have you leading the way. Thank you for your service — both to our country and to CVMA.
+        </p>
+      </div>
+    </div>
+
+    <!-- Baldy -->
+    <div class="person-row">
+      <img
+        class="person-photo"
+        src="https://drive.google.com/uc?export=view&id=1aCAXkr0lVgzzjbr3wvTpGVfcuIwcOEGq"
+        alt="Baldy"
+      >
+      <div class="person-info">
+        <div class="person-name">Baldy</div>
+        <div class="person-role">Chapter Sergeant at Arms</div>
+        <p class="person-desc">
+          <strong style="color:#fff;">Baldy</strong> has been appointed to serve as the <strong style="color:#C9A84C;">Chapter Sergeant at Arms</strong> for CVMA 24-3. Welcome to your new role — the chapter is stronger with you in this position. Thank you for stepping up and carrying out this important responsibility with honor.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-sep"></div>
+
+
+  <!-- ════════════════ UPCOMING EVENTS ════════════════ -->
+  <div class="section-content">
+    <div class="section-header">
+      <span class="section-icon">📅</span>
+      <div class="section-title">Upcoming Events</div>
+    </div>
+    <hr class="divider">
+
+    <!-- Ziggy Memorial -->
+    <div class="event-card">
+      <img
+        class="event-img"
+        src="https://drive.google.com/uc?export=view&id=1Ww11e9ZAJf46DxZmEWUA5HXdy9z4asnS"
+        alt="Ziggy Memorial Ride"
+      >
+      <div class="event-body">
+        <div class="event-date">June 27, 2026</div>
+        <div class="event-title">Ziggy Memorial Ride &amp; Celebration of Life</div>
+        <ul class="event-details">
+          <li>Ride starts at <strong style="color:#e0d5b8;">O'Fallon, IL Dept. of Public Safety</strong></li>
+          <li>KSU (Kickstands Up) — <strong style="color:#e0d5b8;">0815 hrs</strong></li>
+          <li>Celebration of Life — <strong style="color:#e0d5b8;">1000 hrs</strong></li>
+          <li>Location: <strong style="color:#e0d5b8;">Madison County Fairgrounds, Highland, IL</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bike Show -->
+    <div class="event-card">
+      <img
+        class="event-img"
+        src="https://drive.google.com/uc?export=view&id=1Px0LEbULv7qlEjyAuPUa3BPadpmAk_Fw"
+        alt="Bike Show"
+      >
+      <div class="event-body">
+        <div class="event-date">June 27, 2026</div>
+        <div class="event-title">Bike Show @ Silver Creek Sports &amp; Social</div>
+        <ul class="event-details">
+          <li>Setup at <strong style="color:#e0d5b8;">Silver Creek</strong> — 1200 hrs</li>
+          <li>Belleville, IL</li>
+          <li>Sell 50/50 raffle tickets — be ready!</li>
+          <li>Come support the biker community</li>
+          <li style="color:#C9A84C;">☀️ Wear sunscreen!</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- O'Fallon Parade -->
+    <div class="event-card">
+      <img
+        class="event-img"
+        src="https://drive.google.com/uc?export=view&id=1PXO519u5IEZZDhBJXDEkdxlLjFrAhK4s"
+        alt="Independence Day Parade"
+      >
+      <div class="event-body">
+        <div class="event-date">July 3, 2026</div>
+        <div class="event-title">O'Fallon Independence Day / America's 250th Parade</div>
+        <ul class="event-details">
+          <li>Staging area: <strong style="color:#e0d5b8;">S. Smiley St &amp; State St</strong></li>
+          <li>End point: <strong style="color:#e0d5b8;">O'Fallon Community Park</strong> — 405 E. 5th Street</li>
+          <li>Arrive at <strong style="color:#e0d5b8;">0800 hrs</strong></li>
+          <li>Let's ride proud for America's 250th!</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Chapter Social -->
+    <div class="event-card">
+      <img
+        class="event-img"
+        src="https://drive.google.com/uc?export=view&id=1MoSi1IYyDktj70ZvUp8gO5_FktmkTDzE"
+        alt="Chapter Social"
+      >
+      <div class="event-body">
+        <div class="event-date">August 10, 2026</div>
+        <div class="event-title">CVMA 24-3 Chapter Social</div>
+        <ul class="event-details">
+          <li>Location: <strong style="color:#e0d5b8;">Commander's House</strong></li>
+          <li>Ink &amp; Drink @ Clutch and ThunderP's</li>
+          <li><strong style="color:#C9A84C;">"Triple Nickel Saloon"</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- IL State Meeting -->
+    <div class="event-card">
+      <img
+        class="event-img"
+        src="https://drive.google.com/uc?export=view&id=1u_Sf52BWm6sHwUgoalJ7E61kPFSKpYiy"
+        alt="IL State Meeting"
+      >
+      <div class="event-body">
+        <div class="event-date">August 14–15, 2026</div>
+        <div class="event-title">IL State Meeting — CVMA 24-7 Peoria, IL</div>
+        <ul class="event-details">
+          <li>Host Hotel: <strong style="color:#e0d5b8;">Paradise Casino</strong> — 21 Blackjack Blvd, East Peoria, IL 61611</li>
+          <li><strong style="color:#C9A84C;">Aug 14</strong> — Bike Night (more info to follow)</li>
+          <li><strong style="color:#C9A84C;">Aug 15 @ 0845</strong> — Group Ride to Jamie's Outpost</li>
+          <li><strong style="color:#C9A84C;">Aug 15 @ 1500</strong> — State Meeting</li>
+          <li><strong style="color:#C9A84C;">Aug 15 @ 1630</strong> — Social at the Tin Lizzard</li>
+          <li><strong style="color:#C9A84C;">Aug 15 @ 1800</strong> — Dinner</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-sep"></div>
+
+
+  <!-- ════════════════ ANNOUNCEMENTS ════════════════ -->
+  <div class="section-content">
+    <div class="section-header">
+      <span class="section-icon">📣</span>
+      <div class="section-title">Announcements</div>
+    </div>
+    <hr class="divider">
+
+    <!-- Lennox Feel The Love -->
+    <div class="announcement-card">
+      <img
+        class="announcement-img"
+        src="https://drive.google.com/uc?export=view&id=1g4mN8RbcJb2nfhxpZxQLRO-DDloE-bc-"
+        alt="Lennox Feel The Love"
+      >
+      <div class="announcement-body">
+        <div class="announcement-title">Lennox "Feel The Love" Program</div>
+        <p class="announcement-text">
+          <strong style="color:#e0d5b8;">Sully</strong> is looking for nominations for the Lennox <em>"Feel The Love"</em> program. Home Heating and Cooling has partnered with Lennox to help a veteran in need with replacing their HVAC system that is no longer safe or operational. This is a <strong style="color:#C9A84C;">100% free HVAC system!</strong>
+          <br><br>
+          Please contact <strong style="color:#e0d5b8;">Sully</strong> or <strong style="color:#e0d5b8;">Doc D</strong> with the name of someone you would like to nominate.
+        </p>
+        <span class="announcement-cta">Submit a Nomination</span>
+      </div>
+    </div>
+
+    <!-- Booby Trap Pistol Raffle -->
+    <div class="announcement-card">
+      <img
+        class="announcement-img"
+        src="https://drive.google.com/uc?export=view&id=1xfyA4-NPOjTI1wMHe2HZL4GiLt-JPcMf"
+        alt="Booby Trap Pistol Raffle"
+      >
+      <div class="announcement-body">
+        <div class="announcement-title">Chapter Pistol Raffle — Coming Soon!</div>
+        <p class="announcement-text">
+          The <strong style="color:#C9A84C;">Booby Trap Pistol Raffle</strong> is coming soon. Stay tuned for details and be prepared to sell tickets. More information will be provided — watch your messages!
+        </p>
+        <span class="announcement-cta">Stay Tuned</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-sep"></div>
+
+
+  <!-- ════════════════ NEW MEMBERS ════════════════ -->
+  <div class="section-content">
+    <div class="section-header">
+      <span class="section-icon">🤝</span>
+      <div class="section-title">New Members</div>
+    </div>
+    <hr class="divider">
+
+    <div class="member-card">
+      <img
+        class="member-photo"
+        src="https://drive.google.com/uc?export=view&id=1xlmrNzhYUMkGUYE2bwr"
+        alt="Vixen"
+      >
+      <div class="member-info">
+        <div class="member-welcome">Welcome to the Auxiliary</div>
+        <div class="member-name">Lacy <span class="member-handle">"VIXEN"</span> Lang</div>
+        <p class="member-sub" style="font-size:13px; color:#b8ad98; margin-top:8px; line-height:1.6;">
+          We're proud to welcome <strong style="color:#fff;">VIXEN</strong> to the CVMA 24-3 Auxiliary. Thank you for joining our brotherhood and sisterhood — together we ride strong. Welcome home!
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-sep" style="margin-bottom:0;"></div>
+
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <div class="footer">
+    <div class="footer-stars">★ ★ ★ ★ ★</div>
+    <div class="footer-logo">CVMA Chapter 24-3</div>
+    <div class="footer-tagline">Illinois ★ Combat Veterans Motorcycle Association</div>
+    <div class="footer-note">
+      "Brothers Forever, Soldiers Always"<br>
+      <span style="color:#333;">For questions or submissions, contact your chapter leadership.</span>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+</body>
+</html>
